@@ -100,9 +100,12 @@
         </div>
     </div>
     <div class="uk-margin">
-        <label class="uk-form-label" for="form-horizontal-text">City/Town</label>
+        <label class="uk-form-label" for="form-horizontal-text">Country</label>
         <div class="uk-form-controls">
-            <input class="uk-input disabled_address" id="{{loop.index}}city" type="text" placeholder="City/Town...">
+            <select class="uk-select uk-input disabled_address" id="{{loop.index}}country" name="timezone">
+                <option VALUE="australia">Australia</option>
+                <option VALUE="usa">United States</option>
+            </select>
         </div>
     </div>
     <div class="uk-margin">
@@ -112,18 +115,15 @@
         </div>
     </div>
     <div class="uk-margin">
-        <label class="uk-form-label" for="form-horizontal-text">Postal/Zip Code</label>
+        <label class="uk-form-label" for="form-horizontal-text">City/Town</label>
         <div class="uk-form-controls">
-            <input class="uk-input disabled_address" id="{{loop.index}}postcode" type="text" placeholder="Postal Code...">
+            <input class="uk-input disabled_address" id="{{loop.index}}city" type="text" placeholder="City/Town...">
         </div>
     </div>
     <div class="uk-margin">
-        <label class="uk-form-label" for="form-horizontal-text">Country</label>
+        <label class="uk-form-label" for="form-horizontal-text">Postal/Zip Code</label>
         <div class="uk-form-controls">
-            <select class="uk-select uk-input disabled_address" id="{{loop.index}}country" name="timezone">
-                <option VALUE="australia">Australia</option>
-                <option VALUE="usa">United States</option>
-            </select>
+            <input class="uk-input disabled_address" id="{{loop.index}}postcode" type="text" placeholder="Postal Code...">
         </div>
     </div>
     </form>
