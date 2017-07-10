@@ -116,7 +116,7 @@
     <div class="uk-margin">
         <label class="uk-form-label" for="form-horizontal-text">State</label>
         <div class="uk-form-controls">
-		<div id='US'>
+		<div id='{{loop.index}}US'>
 			<select class='uk-select uk-input disabled_address' id="{{loop.index}}state" name="state">
 				<option value="AL">Alabama</option>
 				<option value="AK">Alaska</option>
@@ -171,7 +171,7 @@
 				<option value="WY">Wyoming</option>
 			</select>
 		</div>
-		<div id='AU'>
+		<div id='{{loop.index}}AU'>
 			<select class='uk-select uk-input disabled_address' id="{{loop.index}}state" name="state">
 				<option name="act">Australian Capital Territory</option>
 				<option name="nsw">New South Wales</option>
@@ -470,28 +470,28 @@ $(".num-only").on("keydown", function (e) {
 <script>
 	(function() {
     var form = document.getElementsByTagName('select'),
-        usa = document.getElementById('US'),
-        au = document.getElementById('AU'),
-        regex = /\d{1}country/g;
+        regex = /country/i;
     for (index in form) {
         let input = form[index];
-        if (regex.test(input.id)) {
+        if (input.id.slice(1) == 'country') {
+		let currentUS = document.getElementById(String(input.id)[0]+'US'),
+			currentAus = document.getElementById(String(input.id)[0]+'AU');
 	    if (input.value == 'usa') {
-		usa.style.display = 'block';
-		au.style.display ='none';
+		currentUS.style.display = 'block';
+		currentAus.style.display ='none';
 	    }
 	    else {
-		usa.style.display = 'none';
-		au.style.display = 'block';
+		currentUS.style.display = 'none';
+		currentAus.style.display = 'block';
 	    }
             input.oninput = function() {
                 if (input.value == 'usa') {
-                    usa.style.display = 'block';
-                    au.style.display = 'none';
+                    currentUS.style.display = 'block';
+                    currentAus.style.display = 'none';
                 }
                 else {
-                    usa.style.display = 'none';
-                    au.style.display = 'block';
+                    currentUS.style.display = 'none';
+                    currentAus.style.display = 'block';
                 }
             }
         }
