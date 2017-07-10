@@ -452,10 +452,10 @@ $(".num-only").on("keydown", function (e) {
     var form = document.getElementsByTagName('select'),
         usa = document.getElementById('US'),
         au = document.getElementById('AU'),
-        regex = /\d{1}country/i;
+        regex = /country/i;
     for (index in form) {
         let input = form[index];
-        if (regex.test(input.id)) {
+        if (input.id.slice(1) == 'country') {
 	    if (input.value == 'usa') {
 		usa.style.display = 'block';
 		au.style.display ='none';
