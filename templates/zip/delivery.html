@@ -370,6 +370,37 @@ $(".num-only").on("keydown", function (e) {
     });
 
 </script>
+<script>
+	(function() {
+    var form = document.getElementsByTagName('select'),
+        regex = /country/i;
+    for (index in form) {
+        let input = form[index];
+        if (input.id.slice(1) == 'country') {
+		let currentUS = document.getElementById(String(input.id)[0]+'US'),
+			currentAus = document.getElementById(String(input.id)[0]+'AU');
+	    if (input.value == 'usa') {
+		currentUS.style.display = 'block';
+		currentAus.style.display ='none';
+	    }
+	    else {
+		currentUS.style.display = 'none';
+		currentAus.style.display = 'block';
+	    }
+            input.oninput = function() {
+                if (input.value == 'usa') {
+                    currentUS.style.display = 'block';
+                    currentAus.style.display = 'none';
+                }
+                else {
+                    currentUS.style.display = 'none';
+                    currentAus.style.display = 'block';
+                }
+            }
+        }
+    }
+})();
+</script>
 </div>
 <footer class="footer">
 	<div class="uk-clearfix">
