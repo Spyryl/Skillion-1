@@ -64,7 +64,7 @@ def facebookGet():
 
 @app.route('/testing')
 def testing():
-	return "<h1>{}</h1>".format(user['address']) 
+	return "<h1>{}</h1>".format(session['user']['address']) 
 
 @app.route('/facebook/login')
 @facebook.authorized_handler
