@@ -11,7 +11,7 @@ from flask import jsonify, make_response
 from flask_oauth import OAuth
 import requests
 
-#Testing
+
 
 #-------------------------------------------------------------------------------
 #                           CONFIGURATION VARIABLES
@@ -61,6 +61,10 @@ facebook = oauth.remote_app(
 def facebookGet():
     return facebook.authorize(callback=url_for('facebook_authorized',
         next=request.args.get('next'), _external=True))
+
+@app.route('/testing')
+def testing():
+	return "<h1>{}</h1>".format(user['address']) 
 
 @app.route('/facebook/login')
 @facebook.authorized_handler
@@ -230,7 +234,7 @@ def editProfile():
     Contact details can be updated using the form 3, and form four simply
     updates the password."""
     from flask import request
-    if session['user']:
+    if session.get('user'):
         user = session['user']
         if request.method == "GET":
             baseUrl = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Customer_Profile&Token='
