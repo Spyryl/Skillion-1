@@ -110,12 +110,12 @@ function zipPaymentHandler() {
 	data['shipping_address'] = {};
 	data['shipping_address']['first_name'] = "{{user['name_first']}}";
 	data['shipping_address']['last_name'] = "{{user['name_last']}}";
-	data['shipping_address']['line1'] = "{{user['addresses'][0]['address_line1']}}";
-	data['shipping_address']['line2'] = "{{user['addresses'][0]['address_line2']}}";
-	data['shipping_address']['country'] = "{{user['addresses'][0]['address_country_name']}}";
-	data['shipping_address']['zip'] = "{{user['addresses'][0]['address_postcode']}}";
-	data['shipping_address']['city'] = "{{user['addresses'][0]['address_city']}}";
-	data['shipping_address']['state'] = "{{user['addresses'][0]['address_region']}}";
+	data['shipping_address']['line1'] = "{{user['address'][0]['address_line1']}}";
+	data['shipping_address']['line2'] = "{{user['address'][0]['address_line2']}}";
+	data['shipping_address']['country'] = "{{user['address'][0]['address_country_name']}}";
+	data['shipping_address']['zip'] = "{{user['address'][0]['address_postcode']}}";
+	data['shipping_address']['city'] = "{{user['address'][0]['address_city']}}";
+	data['shipping_address']['state'] = "{{user['address'][0]['address_region']}}";
 
 	data['billing_address'] = data['shipping_address'];
 
